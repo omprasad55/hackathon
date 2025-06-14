@@ -11,6 +11,8 @@ const AppContextProvider = ({ children }) => {
 
   
   axios.defaults.withCredentials = true;
+  axios.defaults.baseURL = backendUrl;
+
 
   const [isLoggedin, setIsLoggedin] = useState(false);
   const [userData, setUserData] = useState(null);

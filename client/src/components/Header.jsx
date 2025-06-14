@@ -7,11 +7,17 @@ import { AppContent } from '../context/AppContext'
 
 const Header = () => {
 
-    const handleGetStarted = () => {
-    const isLoggedIn = localStorage.getItem('token'); // or any auth key you store
+      const { userData } = useContext(AppContent)
+    const { isLoggedin } = useContext(AppContent);
 
-    if (isLoggedIn) {
-      navigate('/form'); // replace with your actual form page route
+      
+    
+
+    const handleGetStarted = () => {
+
+
+    if (isLoggedin) {
+      navigate('/eligibility-form'); 
     } else {
       navigate('/login');
     }
@@ -19,7 +25,7 @@ const Header = () => {
 
     const navigate = useNavigate()
 
-    const {userData}= useContext(AppContent) 
+    
 
     return (
         <div className='flex flex-col items-center mt-20 px-4 text-center text-gray-800'>
